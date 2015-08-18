@@ -23,7 +23,20 @@ function RPGGame:initListener()
 end
 --modType : scene,ui,clearAllUI,fight
 function RPGGame:changeModuleFun(modType, name, data, eType)  
-
+	if modType == "scene" then
+		self:switchScene(name, data)
+		return
+	end
+	
+	if modType == "ui" then
+		self:switchUI(name, data, eType)
+		return
+	end
+	
+	if modType == "clearAllUI" then
+		self:clearAllUI()
+		return
+	end
 end
 
 function RPGGame:switchScene(name,data) 
