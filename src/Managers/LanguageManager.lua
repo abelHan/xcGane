@@ -1,5 +1,5 @@
 --[[
-	¶àÓïÑÔ¹ÜÀí
+	å¤šè¯­è¨€ç®¡ç†
 	
 
 --]]
@@ -7,7 +7,7 @@
 
 local LanguageManager = class("LanguageManager")
 
---ÓïÑÔ°ü
+--è¯­è¨€åŒ…
 local languageData = requireM("language.Language_"..CONFIG_LANAGUE)
 
 function LanguageManager:ctor()

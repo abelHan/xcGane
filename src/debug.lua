@@ -1,5 +1,5 @@
 --[[
-	Óëµ÷ÊÔÏà¹ØµÄ·½·¨
+	ä¸è°ƒè¯•ç›¸å…³çš„æ–¹æ³•
 
 
 --]]
@@ -69,7 +69,7 @@ function logR(cls,model,...)
 	--7
 end
 
--- ·â×°require²¢¼ÇÂ¼¼ÓÔØµÄÄ£¿é
+-- å°è£…requireå¹¶è®°å½•åŠ è½½çš„æ¨¡å—
 function requireM(moduleFullName, model)
 	
 	if model ~= nil and model ~= "" then
@@ -85,13 +85,13 @@ function requireM(moduleFullName, model)
 	return require(moduleFullName)
 end
 
--- ÇåÀí¼ÇÂ¼µÄÄ£¿é
+-- æ¸…ç†è®°å½•çš„æ¨¡å—
 function removeRequire(model)
 	if model == nil or model == "" then return end
 	local list = loadModelLua[model]
 	if list ~= nil then
 		for i = 1, #list do
-			__LogM(list[i] .. " ÇåÀí³É¹¦","debug")
+			__LogM(list[i] .. " æ¸…ç†æˆåŠŸ","debug")
 			package.loaded[list[i]] = nil	
 		end
 	end

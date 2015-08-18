@@ -1,7 +1,7 @@
 --[[
 
 FunctionCtrl.lua
-ÓÎÏ·scene,UI×ª»»
+æ¸¸æˆscene,UIè½¬æ¢
 
 --]]
 
@@ -12,42 +12,42 @@ function FunctionCtrl:ctor()
 	self:initListener()
 end
 
---³õÊ¼»¯Êı¾İ
+--åˆå§‹åŒ–æ•°æ®
 function FunctionCtrl:initData()
 	
 end
 
---³õÊ¼»¯ÏûÏ¢¼àÌı
+--åˆå§‹åŒ–æ¶ˆæ¯ç›‘å¬
 function FunctionCtrl:initListener()
 
 
 end
 
---´ò¿ªÕ½¶·½çÃæ
+--æ‰“å¼€æˆ˜æ–—ç•Œé¢
 function FunctionCtrl:openFight(data)
 
 
 end
 
---Ö±½Ó´ò¿ªÄ³¸ö½çÃæ
+--ç›´æ¥æ‰“å¼€æŸä¸ªç•Œé¢
 function FunctionCtrl:openUIByIDNotCheck(functionID, data)
 
 end
 
---Íâ²¿µ÷ÓÃ£¬´ò¿ªÄ³¸ö½çÃæ
+--å¤–éƒ¨è°ƒç”¨ï¼Œæ‰“å¼€æŸä¸ªç•Œé¢
 function FunctionCtrl:openUIByID(functionID, data)
 	
 	
 	self:openUIByIDNotCheck(functionID,data)
 end
 
---¼ì²âÄ³¸ö½çÃæÍæ·¨ÊÇ·ñ¿ª·Å
+--æ£€æµ‹æŸä¸ªç•Œé¢ç©æ³•æ˜¯å¦å¼€æ”¾
 function FunctionCtrl:checkIsOpened(functionID)
 
 	return true
 end
 
---»ñÈ¡Ä³¸öÍæ·¨µÄ·¢·ÅµÈ¼¶
+--è·å–æŸä¸ªç©æ³•çš„å‘æ”¾ç­‰çº§
 function FunctionCtrl:getOpenLevel(functionID)
 
 
