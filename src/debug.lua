@@ -8,15 +8,6 @@
 local loadModelLua = {}
 local loadAllLua = {}
 
-local lastPrint = print
-function print(...)
-	lastPrint(...)
-end
-
-function lastDump = dump
-function dump(...)
-	lastDump(...)
-end
 
 function writeLogFun(str,model)
 	if is_write_local_log ~= true then return end
@@ -42,6 +33,23 @@ function writeLogFun(str,model)
 	__FileLog:write("\n" .. modelStr ..str)
 	__FileLog:flush()
 end
+
+
+local lastPrint = print
+function print(...)
+	lastPrint(...)
+end
+
+function lastDump = dump
+function dump(...)
+	local result = lastDump(...)
+	
+	for i,line in ipairs(result)
+		writeLogFun(line,"--")
+	end
+	return result
+end
+
 
 function __LogM(cls,model ,...)
 	if cls == nil then return end
