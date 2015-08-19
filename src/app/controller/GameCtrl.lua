@@ -1,7 +1,7 @@
 --[[
-	GameCtrl --сно╥©ьжфюЮ
-	RoleData --сно╥х╚╬жйЩ╬щ
-	RPGGame  --сно╥UIотй╬
+	GameCtrl --Ф╦╦Ф┬▐Ф▌╖Е┬╤Г╠╩
+	RoleData --Ф╦╦Ф┬▐Е┘╗Е╠─Ф∙╟Ф█╝
+	RPGGame  --Ф╦╦Ф┬▐UIФ≤╬Г╓╨
 --]]
 
 

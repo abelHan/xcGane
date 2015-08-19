@@ -24,3 +24,6 @@ CC_DESIGN_RESOLUTION = {
         end
     end
 }
+
+-- 游戏中的参数
+require "Constant"
