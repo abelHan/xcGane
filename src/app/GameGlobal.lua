@@ -40,7 +40,7 @@ g_storyManager = requireM()
 --tools
 g_tools = requireM()
 g_lan = requireM()  
-g_GUIcreator =  requireM()
+g_GUIcreator =  requireM(g_require_util .. "GUICreator").new()
 g_GUITool = requireM()
 
 
