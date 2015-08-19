@@ -1,54 +1,54 @@
 
 --[[
-	UI´´½¨º¯Êı
+	UIåˆ›å»ºå‡½æ•°
 	GUICreator
 	
-	UI ÖĞconfigµÄ×Ö¶Î
-	normalUrl   --Î´°´ÏÂÊ±°´Å¥ÏÔÊ¾Í¼Æ¬µÄÂ·¾¶
-	selectedUrl       --°´ÏÂÊ±°´Å¥ÏÔÊ¾Í¼Æ¬µÄÂ·¾¶
-	disabledUrl       --²»¿Éµã»÷Ê±°´Å¥ÏÔÊ¾Í¼Æ¬µÄÂ·¾¶	
-	pngUrl                --Ä¬ÈÏÍ¼Æ¬µÄÂ·¾¶
-	plistUlr            --plistÂ·¾¶
+	UI ä¸­configçš„å­—æ®µ
+	normalUrl   --æœªæŒ‰ä¸‹æ—¶æŒ‰é’®æ˜¾ç¤ºå›¾ç‰‡çš„è·¯å¾„
+	selectedUrl       --æŒ‰ä¸‹æ—¶æŒ‰é’®æ˜¾ç¤ºå›¾ç‰‡çš„è·¯å¾„
+	disabledUrl       --ä¸å¯ç‚¹å‡»æ—¶æŒ‰é’®æ˜¾ç¤ºå›¾ç‰‡çš„è·¯å¾„	
+	pngUrl                --é»˜è®¤å›¾ç‰‡çš„è·¯å¾„
+	plistUlr            --plistè·¯å¾„
 
-	name            -- ¿Ø¼şµÄ±êºÅ
-	text                 -- ÎÄ×ÖÄÚÈİ
-	fontSize        --×ÖÌåµÄ´óĞ¡
-	fontFileName	--×ÖÌåÎÄ¼ş
-	vAlignment		--×ÖÌåË®Æ½¶ÔÆë·½Ê½
+	name            -- æ§ä»¶çš„æ ‡å·
+	text                 -- æ–‡å­—å†…å®¹
+	fontSize        --å­—ä½“çš„å¤§å°
+	fontFileName	--å­—ä½“æ–‡ä»¶
+	vAlignment		--å­—ä½“æ°´å¹³å¯¹é½æ–¹å¼
 
-	rect                 --ÏÔÊ¾ÇøÓò
-	anchor          --Ãªµã×ø±ê
-	isStroke        --×ÖÌåÊÇ·ñ´ò¿ªÃè±ß
-	strokeColor  --Ãè±ßµÄÑÕÉ«
-	textColor       --×ÖÌåÑÕÉ«
-	align              --¶ÔÆë·½Ê½
-	insectRect     --ÄÚ±ß¿ò,·Ö±ğÊÇËÄÖÜµÄ¼ä¾à£¬²»ÊÇx,y,width,height
-	preferrSize     --¿í¸ß
+	rect                 --æ˜¾ç¤ºåŒºåŸŸ
+	anchor          --é”šç‚¹åæ ‡
+	isStroke        --å­—ä½“æ˜¯å¦æ‰“å¼€æè¾¹
+	strokeColor  --æè¾¹çš„é¢œè‰²
+	textColor       --å­—ä½“é¢œè‰²
+	align              --å¯¹é½æ–¹å¼
+	insectRect     --å†…è¾¹æ¡†,åˆ†åˆ«æ˜¯å››å‘¨çš„é—´è·ï¼Œä¸æ˜¯x,y,width,height
+	preferrSize     --å®½é«˜
 
-	percent          --°Ù·Ö±È
-	maxNum        --×î´ó¸öÊı
-	callBack         --»Øµ÷º¯Êı
+	percent          --ç™¾åˆ†æ¯”
+	maxNum        --æœ€å¤§ä¸ªæ•°
+	callBack         --å›è°ƒå‡½æ•°
 
-	--node ÊôĞÔ
-	ZOrder			--Éî¶ÈÖµ
+	--node å±æ€§
+	ZOrder			--æ·±åº¦å€¼
 	
-	scaleX			--xÖáËõ·Å±È
-	scaleY			--yÖáËõ·Å±È
-	scale			--ÕûÌåËõ·Å±È
+	scaleX			--xè½´ç¼©æ”¾æ¯”
+	scaleY			--yè½´ç¼©æ”¾æ¯”
+	scale			--æ•´ä½“ç¼©æ”¾æ¯”
 	
-	pos                --¿Ø¼şµÄÎ»ÖÃĞÅÏ¢ccp
-	x                    --¿Ø¼şµÄÎ»ÖÃĞÅÏ¢x
-	y                    --¿Ø¼şµÄÎ»ÖÃĞÅÏ¢y
+	pos                --æ§ä»¶çš„ä½ç½®ä¿¡æ¯ccp
+	x                    --æ§ä»¶çš„ä½ç½®ä¿¡æ¯x
+	y                    --æ§ä»¶çš„ä½ç½®ä¿¡æ¯y
 	
-	areaSize        --¿Ø¼ş´óĞ¡ size
-	width            --¿í
-	height            --¸ß
+	areaSize        --æ§ä»¶å¤§å° size
+	width            --å®½
+	height            --é«˜
 	
 	rotation 		--rotation (angle) od the node in degrees
 	
-	parent            --¸¸ÀàÖ¸Õë
+	parent            --çˆ¶ç±»æŒ‡é’ˆ
 	
-	tag 			--±êºÅ
+	tag 			--æ ‡å·
 	
 	
 --]]
@@ -130,11 +130,11 @@ function   GUICreator:createButton(config)
  end
 function   GUICreator:createLabel(config) 
 	local label = nil
-	label = cc.Label:createWithSystemFont(config.txt or "",config.fontFileName or "",config.fontSize or 22)
+	label = cc.Label:createWithSystemFont(config.txt or "",config.fontFileName or "font/font_kaishu.ttf",config.fontSize or 22)
 	
-	--cc.VERTICAL_TEXT_ALIGNMENT_TOP,  -- ¶ÔÆë¶¥²¿  
-	--cc.VERTICAL_TEXT_ALIGNMENT_CENTER, -- ¾ÓÖĞ¶ÔÆë  
-	--cc.VERTICAL_TEXT_ALIGNMENT_BOTTOM, -- µ×²¿¶ÔÆë
+	--cc.VERTICAL_TEXT_ALIGNMENT_TOP,  -- å¯¹é½é¡¶éƒ¨  
+	--cc.VERTICAL_TEXT_ALIGNMENT_CENTER, -- å±…ä¸­å¯¹é½  
+	--cc.VERTICAL_TEXT_ALIGNMENT_BOTTOM, -- åº•éƒ¨å¯¹é½
   
 	label:setVerticalAlignment(config.vAlignment or cc.VERTICAL_TEXT_ALIGNMENT_CENTER)
 	self:dealWithNoramlParameter(label)
