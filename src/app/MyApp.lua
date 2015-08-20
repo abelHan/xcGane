@@ -1,6 +1,5 @@
 
-require "app.debug"
-require "app.GameGlobal"
+
 
 
 local MyApp = class("MyApp")
