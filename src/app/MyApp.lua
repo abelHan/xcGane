@@ -10,9 +10,9 @@ function MyApp:onCreate()
 end
 
 
-function MyApp:run()
+function MyApp.run()
 	local LoginScene = require(g_require_view .. "LoginScene")
-	local scene = LoginScene.new()
+	local scene = LoginScene:create()
 	
 	if cc.Director:getInstance():getRunningScene() then
 		cc.Director:getInstance():replaceScene(scene)

@@ -23,32 +23,32 @@ g_gender_female = 2 --女性
 g_race =  1  --职业
 g_class = {}
 --UI
-g_class.MMNode = requireM()
-g_class.MMButton = requireM()
-g_class.MMBaseUI = requireM()
-g_class.MMAlert    = requireM()
+-- g_class.MMNode = requireM()
+-- g_class.MMButton = requireM()
+-- g_class.MMBaseUI = requireM()
+-- g_class.MMAlert    = requireM()
 --manager
-g_timeManager = requireM()
+-- g_timeManager = requireM()
 g_dataManager = requireM(g_require_manager .. "DataManager").new()
-g_resourceManager = requireM()
-g_audioManager = requireM()
-g_newGuideManager = requireM()
-g_layerManager = requireM()
-g_renderManager = requireM()
-g_armatureManager = requireM()
-g_storyManager = requireM()
+-- g_resourceManager = requireM()
+-- g_audioManager = requireM()
+-- g_newGuideManager = requireM()
+-- g_layerManager = requireM()
+-- g_renderManager = requireM()
+-- g_armatureManager = requireM()
+-- g_storyManager = requireM()
 --tools
-g_tools = requireM()
-g_lan = requireM()  
+-- g_tools = requireM()
+-- g_lan = requireM()  
 g_GUIcreator =  requireM(g_require_util .. "GUICreator").new()
-g_GUITool = requireM()
+-- g_GUITool = requireM()
 
 
 
 --
 g_rpgGame = requireM(g_require_view .. "RPGGame").new()
 g_roleData = requireM(g_require_model .. "RoleData").new()
-g_functionCtrl = requireM(g_require_ctrl .. "FunctionCtrl").new()
+-- g_functionCtrl = requireM(g_require_ctrl .. "FunctionCtrl").new()
 
 
 

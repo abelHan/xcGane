@@ -40,7 +40,7 @@ function print(...)
 	lastPrint(...)
 end
 
-function lastDump = dump
+local lastDump = dump
 function dump(...)
 	local result = lastDump(...)
 	

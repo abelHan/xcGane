@@ -13,7 +13,7 @@ function DataManager:ctor()
 	self:readPlayerData()
 	self:readRes()
 	self:readAllLevelData()
-	self:readAllEvent()
+	self:readAllTask()
 end
 
 -- 读取所有配置档的名称

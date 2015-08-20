@@ -83,7 +83,7 @@ function GUICreator:dealWithNoramlParameter(node,config)
 	if config.rotation then node:setRotation(config.rotation) end
 	
 	-- parent
-	if config.parent and node:getParent() == nil then parent:addChild(node) end
+	if config.parent and node:getParent() == nil then config.parent:addChild(node) end
 	
 	--tag
 	if config.tag then node:setTag(config.tag) end
@@ -130,14 +130,15 @@ function   GUICreator:createButton(config)
  end
 function   GUICreator:createLabel(config) 
 	local label = nil
-	label = cc.Label:createWithSystemFont(config.txt or "",config.fontFileName or "font/font_kaishu.ttf",config.fontSize or 22)
+	label = cc.Label:createWithTTF(config.txt or "",config.fontFileName or "res/font/font_youer.ttf",config.fontSize or 22)
+	-- label = cc.Label:createWithSystemFont(config.txt or "",config.fontFileName or "Marker Felt",config.fontSize or 22)
 	
 	--cc.VERTICAL_TEXT_ALIGNMENT_TOP,  -- 对齐顶部  
 	--cc.VERTICAL_TEXT_ALIGNMENT_CENTER, -- 居中对齐  
 	--cc.VERTICAL_TEXT_ALIGNMENT_BOTTOM, -- 底部对齐
   
 	label:setVerticalAlignment(config.vAlignment or cc.VERTICAL_TEXT_ALIGNMENT_CENTER)
-	self:dealWithNoramlParameter(label)
+	self:dealWithNoramlParameter(label,config)
 
 	return label
  end

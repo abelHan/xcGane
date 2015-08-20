@@ -3,7 +3,7 @@
 
 --]]
 
-local LoginScene = class("LoginScene",function
+local LoginScene = class("LoginScene",function()
 	return cc.Scene:create()
 end)
 
@@ -19,6 +19,7 @@ function LoginScene:ctor()
 end
 
 function LoginScene:createLayerSprite()
+	print("hello11 ")
 	local layerSprite = cc.Layer:create()
 	local config = {parent = layerSprite,pos =cc.p(200,200),
 		pngUrl = g_load_ui .. "PlaySceneBg.jpg"}
@@ -28,6 +29,7 @@ function LoginScene:createLayerSprite()
 end
 
 function LoginScene:createLayerLabelAndBtn()
+	print("hello22 ")
 	local layer = cc.Layer:create()
 	--button
 	local configBtn = {parent = layer,pos = cc.p(100,100),
@@ -35,8 +37,8 @@ function LoginScene:createLayerLabelAndBtn()
 	local tempBtn = g_GUIcreator:createButton(configBtn)
 	
 	--label
-	local configLabel = {parent = layer,pos = cc.p(100, 300),
-		txt = "游戏说明",fontSize = 24}
+	local configLabel = {parent = layer,pos = cc.p(200, 500),
+		txt = "人生如是久长时",fontSize = 28,txtColor = cc.c3b(255,0,0)}
 	local tempLabel = g_GUIcreator:createLabel(configLabel)
 	
 	--ImageView
