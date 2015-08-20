@@ -23,6 +23,15 @@ end
 function LoginScene:callFun(sender)
 	print("see the data" .. self.index)
 end
+function LoginScene:callFun1(hasSelected)
+
+	if self.label == nil then return end
+	if hasSelected then
+		self.label:setColor(cc.c3b(0,255,0))
+	else
+		self.label:setColor(cc.c3b(0,0,255))	
+	end
+end
 
 
 function LoginScene:createLayerSprite()
@@ -47,12 +56,16 @@ function LoginScene:createLayerLabelAndBtn()
 	local configLabel = {parent = layer,pos = cc.p(200, 500),
 		txt = "人生若是久长时,\n又岂在朝朝暮暮",fontSize = 28,txtColor = cc.c3b(255,0,0),areaSize = cc.size(300,0)}
 	local tempLabel = g_GUIcreator:createLabel(configLabel)
+	self.label = tempLabel
 	
 	--ImageView
 	local configImg ={parent = layer,pos = cc.p(100,500),
 		pngUrl = g_load_ui .. "Star.png"}
 	local tempImg = g_GUIcreator:createImg(configImg)
 	
+	local configCheck ={parent = layer,pos = cc.p(200,200),
+		callBack = self.callFun1,target = self,txt = "字体颜色"}
+	local tempCheck = g_GUIcreator:createMMCheck(configCheck)
 	
 	return layer
 end

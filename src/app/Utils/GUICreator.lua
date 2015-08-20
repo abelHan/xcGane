@@ -160,5 +160,18 @@ function   GUICreator:createLabel(config)
 	return label
  end
  
+ function GUICreator:createMMCheck(config)
+	local check = nil
+	check = MMCheck.new(config.pngs,config.txt,config.fontSize)
+	check:setSelectedEvent(config.callBack,config.target)
+	self:dealWithNoramlParameter(check,config)
+	return check
+ end
+ 
+ 
+ 
  
  return GUICreator
+ 
+ 
+ 
