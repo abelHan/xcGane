@@ -26,7 +26,7 @@ function writeLogFun(str,model)
 	end
 	
 	if __FileLog == nil then
-		__FileLog == io.open(FileUtils:getInstance():getWritablePath() .. "debug.log","wb")
+		__FileLog = io.open(FileUtils:getInstance():getWritablePath() .. "debug.log","wb")
 	end
 	
 	local modelStr = "[".. model .."]  "
@@ -44,7 +44,7 @@ function lastDump = dump
 function dump(...)
 	local result = lastDump(...)
 	
-	for i,line in ipairs(result)
+	for i,line in ipairs(result) do
 		writeLogFun(line,"--")
 	end
 	return result
