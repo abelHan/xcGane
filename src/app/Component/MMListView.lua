@@ -4,16 +4,39 @@ MMListView
 
 --]]
 
+
+-- ä½¿ç”¨æ–¹æ³•
+-- local tempListView = MMListView.new();
+-- touchLayer:addWidget(tempListView)
+-- tempListView:setSize(cc.size(504,146))
+-- tempListView:setRowNum(2);
+-- tempListView:setCellSize(cc.size(250,70))
+
+-- tempListView:createCellFunc(function(index,data)
+		-- local box = g_class.MMWidget.new();
+		-- box:setMMContentSize(250,70)
+		-- box:setAnchorPoint(ccp(0,0));
+		-- local tempRender = RoleUIEquipItemAttrAddRender.new(data);
+		-- box:addChild(tempRender)   
+		-- tempRender:setPosition(ccp(40,box:getContentSize().height/2+20))             
+		-- box:setSize(cc.size(250,70));
+		-- box:ignoreContentAdaptWithSize(false);
+		-- return box;
+	-- end)
+
+-- tempListView:reloadByData(data)
+		
 local MMListView = class("MMListView",function()
-	return ScrollView:create()
+	return ccui.ScrollView:create()
 end)
 
 function MMListView:ctor()
-	self.rowNum = 1 						--ÁĞÊı
-	self.cellTab = {} 						--cell¶ÔÏó
-	self.cellCreateCallBack = nil 			--´´½¨cellÊ±ÓÃµ½µÄ»Øµ÷º¯Êı
-	self.cellSize = nil 					--cell´óĞ¡
-	self.data  =nil   						--´´½¨cellÊ±ÓÃµ½µÄÊı¾İ
+	self.rowNum = 1 						--åˆ—æ•°
+	self.cellTab = {} 						--cellå¯¹è±¡
+	self.cellCreateCallBack = nil 			--åˆ›å»ºcellæ—¶ç”¨åˆ°çš„å›è°ƒå‡½æ•°
+	self.cellSize = nil 					--cellå¤§å°
+	self.cellPos  = {}						--cellæ‰€æœ‰ä½ç½®ä¿¡æ¯
+	self.data  =nil   						--åˆ›å»ºcellæ—¶ç”¨åˆ°çš„æ•°æ®
 end
 
 function MMListView:setRowNum(row)
@@ -29,7 +52,40 @@ function MMListView:createCellFunc(func)
 end
 
 function MMListView:calculateCellsPos()
-
+	self.cellPos  = {}
+	local cellNum = #self.cellData
+	local lineNum = math.ceil(cellNum/self.rowNum) - 1
+	local cellSize = self:getCellSize()
+	local tempX,tempY = 0,cellSize.height *lineNum - 10
+	local visibleSize = self:getContentSize()
+	
+	for i = 1,cellNum do
+		self.cellPos[i] = cc.p(tempX, tempY)
+		if (i % self.rowNum) == 0 then
+			--æ¢è¡Œ
+			tempY = tempY - cellSize.height
+			tempX = 0
+		else
+			--åŒä¸€è¡Œ
+			tempX = tempX + cellSize.width
+		end
+	end
+	
+	local tempHeihgt = cellSize.height * (lineNum + 1)
+	if tempHeihgt >= visibleSize.height then
+		self:setBounceEnabled(true)
+	else
+		self:setBounceEnabled(false)
+		--ä¸å¤Ÿæ—¶é›†ä½“ä¸Šç§»
+		local length = visibleSize.height - tempHeihgt
+		for i,v in ipairs(self.cellPos) do
+			v.y = v.y + length
+		end
+	end
+	
+	--è®¾ç½®å‚æ•°
+	
+	
 end
 
 function MMListView:setCellSize(cellSize)
@@ -52,9 +108,35 @@ function MMListView:getCell()
 	return self.cellTab
 end
 
---isFramingLoad ÊÇ·ñ·ÖÖ¡¼ÓÔØ
+--isFramingLoad æ˜¯å¦åˆ†å¸§åŠ è½½
 function MMListView:reloadByData(data, isFramingLoad)
-
+	self.cellTab = {}
+	self:removeAllChildren()
+	self.cellData = data
+	if #data <= 0 then
+		return
+	end
+	self:calculateCellsPos()
+	
+	for i,v in ipairs(self.cellData) do
+		if self.cellCreateCallBack == nil then
+			print("[reloadByData]:lack of cell creating function")
+			break
+		end
+		
+		local cellView = self.cellCreateCallBack(i,v,self.cellPos[i])
+		if cellView then
+			cellView:setPosition(self.cellPos[i])
+			self.cellTab[#self.cellTab + 1] = cellView
+			self:addChild(cellView)		
+		end
+		
+	end
+	
+	if self.onLoadCompleteFunc then
+		self.onLoadCompleteFunc(self.cellData)
+	end
+	
 end
 
 function MMListView:appendData(data)
@@ -75,7 +157,7 @@ function MMListView:removeAllCell()
 
 end
 
---ÏÔÊ¾Õû¸ö¿Ø¼şÇøÓò
+--æ˜¾ç¤ºæ•´ä¸ªæ§ä»¶åŒºåŸŸ
 function MMListView:showRect()
 
 end
