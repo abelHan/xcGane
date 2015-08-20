@@ -1,5 +1,5 @@
 --[[
---°´Å¥
+--æŒ‰é’®
 
 
 --]]
@@ -20,45 +20,54 @@ function MMButton:ctor(png,x,y,txt,fontSize,selectedPng,isDisableShadow)
 		end
 	
 	end
-	self:setPosition(ccp(toint(x),toint(y)))
+	self:setPosition(cc.p(x or 0,y or 0))
 	if txt then self:setTitleText(txt) end
 	if fontSize then self:setTitleFontSize(fontSize) end
 	--if selectedPng then end
 	--if isDisableShadow then end
 	self.clickEventFunc = nil
 	self.touchEventFunc = nil
+
+end
+
+function MMButton:registerClickEventListener(func,target)
+    if func == nil then return end
+	self.clickEventFunc = func
+	self.target = target	
 	local function touchEvent(sender, eventType)
-	
-		if self.touchEventFunc then
-			self.touchEventFunc(sender, eventType)
-			return true
-		end
-			
-		--²¥·ÅÒôÐ§
-		if eventType == ccui.TouchEventType.began then
-			
-		elseif eventType == ccui.TouchEventType.moved then
-		
-		elseif eventType == ccui.TouchEventType.ended then
+		-- print("position0   ss" .. eventType)			
+		--æ’­æ”¾éŸ³æ•ˆ
+		--if eventType == ccui.TouchEventType.began then			
+		--elseif eventType == ccui.TouchEventType.moved then		
+		if eventType == ccui.TouchEventType.ended then
 			if self.clickEventFunc then
-				self.clickEventFunc(sender)
+				self.clickEventFunc(self.target,sender)
 				return true
 			end
-		elseif eventType == ccui.TouchEventType.canceled then
-		
+		--elseif eventType == ccui.TouchEventType.canceled then		
+		end
 	end
-
-
 	self:addTouchEventListener(touchEvent)
 end
 
-function MMButton:registerClickEventListener(func)
-	self.clickEventFunc = func
-end
 
-
-function MMButton:registerTouchEventListener(func)
+function MMButton:registerTouchEventListener(func,target)
+    if func == nil then return end
 	self.touchEventFunc = func
+	self.target = target
+	local function touchEvent(sender, eventType)		
+		--æ’­æ”¾éŸ³æ•ˆ
+		--if eventType == ccui.TouchEventType.began then			
+		--elseif eventType == ccui.TouchEventType.moved then		
+		--if eventType == ccui.TouchEventType.ended then
+			if self.touchEventFunc then
+				self.touchEventFunc(self.target,sender)
+				return true
+			end
+		--elseif eventType == ccui.TouchEventType.canceled then		
+		--end
+	end
+	self:addTouchEventListener(touchEvent)
 end
 
 --
@@ -74,7 +83,5 @@ function MMButton:hideRedPoint()
 		self.redPoint:setVisible(false)
 	end
 end
-
-
 
 return MMButton

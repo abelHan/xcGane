@@ -28,6 +28,8 @@
 	percent          --百分比
 	maxNum        --最大个数
 	callBack         --回调函数
+	clickEvent		--点击事件回调函数
+	touchEvent		--触摸事件回调函数
 
 	--node 属性
 	ZOrder			--深度值
@@ -52,6 +54,15 @@
 	
 	
 --]]
+
+local MMButton = requireM(g_require_com .. "MMButton")
+local MMCheck  = requireM(g_require_com .. "MMCheck")
+local MMLabel  = requireM(g_require_com .. "MMLabel")
+local MMScrollView = requireM(g_require_com .. "MMScrollView")
+local MMTabGroup   = requireM(g_require_com .. "MMTabGroup")
+local MMTextField  = requireM(g_require_com .. "MMTextField")
+
+
 local GUICreator = class("GUICreator")
 
 function GUICreator:ctor()
@@ -116,12 +127,16 @@ function   GUICreator:createButton(config)
 	--normalUrl, selectedUrl, disabledUrl, pos, btnName, txt, txtSize
 	
 	local button = nil
-	button = ccui.Button:create()
+	-- button = ccui.Button:create()
+	-- function MMButton:ctor(png,x,y,txt,fontSize,selectedPng,isDisableShadow)
+	button = MMButton.new()
 	button:setTouchEnabled(true)
 	button:loadTextures(config.normalUrl or "",config.selectedUrl or "",config.disabledUrl or "")
 	button:setTitleText(config.txt or "")
 	button:setTitleColor(config.textColor or cc.c3b(0,255,0))
 	button:setTitleFontSize(config.fontSize or 22)
+	button:registerClickEventListener(config.clickEvent,config.target)
+	button:registerTouchEventListener(config.touchEvent,config.target)
 
 	self:dealWithNoramlParameter(button, config)
 	
@@ -130,13 +145,15 @@ function   GUICreator:createButton(config)
  end
 function   GUICreator:createLabel(config) 
 	local label = nil
-	label = cc.Label:createWithTTF(config.txt or "",config.fontFileName or "res/font/font_youer.ttf",config.fontSize or 22)
+	-- label = cc.Label:createWithTTF(config.txt or "",config.fontFileName or "res/font/font_youer.ttf",config.fontSize or 22)
 	-- label = cc.Label:createWithSystemFont(config.txt or "",config.fontFileName or "Marker Felt",config.fontSize or 22)
 	
 	--cc.VERTICAL_TEXT_ALIGNMENT_TOP,  -- 对齐顶部  
 	--cc.VERTICAL_TEXT_ALIGNMENT_CENTER, -- 居中对齐  
 	--cc.VERTICAL_TEXT_ALIGNMENT_BOTTOM, -- 底部对齐
-  
+	
+	label = MMLabel.new(config.txt or "",config.fontFileName or "res/font/font_youer.ttf",
+		config.fontSize or 22,config.areaSize)
 	label:setVerticalAlignment(config.vAlignment or cc.VERTICAL_TEXT_ALIGNMENT_CENTER)
 	self:dealWithNoramlParameter(label,config)
 

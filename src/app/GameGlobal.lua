@@ -16,6 +16,7 @@ g_require_model = g_require_app .. "model/"
 g_require_ctrl = g_require_app .. "controller/"
 g_require_util = g_require_app .. "utils/"
 g_require_manager = g_require_app .. "managers/"
+g_require_com = g_require_app .. "Component/"
 
 g_gender_male  = 1  --男性
 g_gender_female = 2 --女性
