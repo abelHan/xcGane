@@ -66,7 +66,10 @@ function LoginScene:createLayerLabelAndBtn()
 	local configCheck ={parent = layer,pos = cc.p(200,200),
 		callBack = self.callFun1,target = self,txt = "字体颜色"}
 	local tempCheck = g_GUIcreator:createMMCheck(configCheck)
-	
+
+	local configField ={parent = layer,pos = cc.p(200,400),areaSize=cc.size(200,50),
+		fontSize = 24,target = self,txt = "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"}
+	local tempField = g_GUIcreator:createTextField(configField)	
 	return layer
 end
 

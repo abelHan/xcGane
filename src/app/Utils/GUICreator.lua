@@ -168,6 +168,14 @@ function   GUICreator:createLabel(config)
 	return check
  end
  
+ function GUICreator:createTextField(config)
+	local textField = nil
+	local fontFileName = config.fontFileName or "res/font/font_youer.ttf"
+	textField = MMTextField.new(config.pngUrl, config.areaSize, fontFileName, config.txt,config.fontSize)
+	self:dealWithNoramlParameter(textField,config)
+	return textField
+ 
+ end
  
  
  
