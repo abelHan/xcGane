@@ -5,6 +5,7 @@
 
 
 local MMListView = requireM(g_require_com .. "MMListView")
+local MMRichText = requireM(g_require_com .. "MMRichText")
 
 
 local LoginScene = class("LoginScene",function()
@@ -75,26 +76,41 @@ function LoginScene:createLayerLabelAndBtn()
 		fontSize = 24,target = self,txt = "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"}
 	local tempField = g_GUIcreator:createTextField(configField)	
 	
-	local cellSize = cc.size(250,150)
-	local tempListView = MMListView.new()
-	layer:addChild(tempListView)
-	tempListView:setSize(cc.size(500,500))
-	tempListView:setCellSize(cellSize)
-	tempListView:setRowNum(2)
-	tempListView:setPosition(ccp(300,100))
-	tempListView:setBackGroundImage()
-	tempListView:createCellFunc(function (index,data,pos)
-		print("see the cell data>>" .. data)
-		local node = cc.Node:create()
-		local configBtn = {parent = node,pos = cc.p(cellSize.width/2, cellSize.height/2),
-			normalUrl = g_load_ui .. "PlayButton.png", txt = "开始", txtColor = cc.c3b(255,0,0),
-			clickEvent = self.callFun, target = self}
-		local box = g_GUIcreator:createButton(configBtn)
-		return node	
-	end)
+	 local cellSize = cc.size(250,150)
+	-- local tempListView = MMListView.new()
+	-- layer:addChild(tempListView)
+	-- tempListView:setSize(cc.size(500,500))
+	-- tempListView:setCellSize(cellSize)
+	-- tempListView:setRowNum(2)
+	-- tempListView:setPosition(ccp(300,100))
+	-- tempListView:setBackGroundImage()
+	-- tempListView:createCellFunc(function (index,data,pos)
+		-- print("see the cell data>>" .. data)
+		-- local node = cc.Node:create()
+		-- local configBtn = {parent = node,pos = cc.p(cellSize.width/2, cellSize.height/2),
+			-- normalUrl = g_load_ui .. "PlayButton.png", txt = "开始", txtColor = cc.c3b(255,0,0),
+			-- clickEvent = self.callFun, target = self}
+		-- local box = g_GUIcreator:createButton(configBtn)
+		-- return node	
+	-- end)
 	
-	tempListView:reloadByData({1,2,3,4,5,6,7,8,9,10,11})
+	-- tempListView:reloadByData({1,2,3,4,5,6,7,8,9,10,11})
 	-- tempListView:showRect()
+	
+	local richText = MMRichText.new(cc.size(600,600))
+	richText:setPosition(cc.p(300,100))
+	layer:addChild(richText)
+	richText:addText({color = cc.c3b(255,0,255),text = "我与地坛",fontSize = 24})
+	richText:addImage({color = cc.c3b(255,0,255),filePath = g_load_ui .. "Star.png"})
+	
+	
+	local node = cc.Node:create()
+	local configBtn = {parent = node,pos = cc.p(cellSize.width/2, 0),
+		normalUrl = g_load_ui .. "PlayButton.png", txt = "开始", txtColor = cc.c3b(255,0,0),
+		clickEvent = self.callFun, target = self}
+	local box = g_GUIcreator:createButton(configBtn)
+	richText:addCustomNode({color = cc.c3b(255,0,255),customNode = node})
+	
 	
 	
 	
