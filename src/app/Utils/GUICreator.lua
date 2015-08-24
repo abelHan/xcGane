@@ -59,7 +59,6 @@ local MMButton = requireM(g_require_com .. "MMButton")
 local MMCheck  = requireM(g_require_com .. "MMCheck")
 local MMLabel  = requireM(g_require_com .. "MMLabel")
 local MMScrollView = requireM(g_require_com .. "MMScrollView")
-local MMTabGroup   = requireM(g_require_com .. "MMTabGroup")
 local MMTextField  = requireM(g_require_com .. "MMTextField")
 
 
