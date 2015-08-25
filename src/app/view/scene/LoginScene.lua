@@ -8,20 +8,26 @@ local MMListView = requireM(g_require_com .. "MMListView")
 local MMRichText = requireM(g_require_com .. "MMRichText")
 local MMTabView  = requireM(g_require_com .. "MMTabView")
 
-local LoginScene = class("LoginScene",function()
-	return cc.Scene:create()
-end)
+-- local LoginScene = class("LoginScene",function()
+	-- return cc.Scene:create()
+-- end)
+local LoginScene = class("LoginScene",g_class.MMScene)
 
-function LoginScene:create()
-	local scene = LoginScene.new()
-	scene:addChild(scene:createLayerSprite())
-	scene:addChild(scene:createLayerLabelAndBtn())
-	scene.index = 3
-	return scene
-end
+
+-- function LoginScene:create()
+	-- local scene = LoginScene.new()
+	-- scene:addChild(scene:createLayerSprite())
+	-- scene:addChild(scene:createLayerLabelAndBtn())
+	-- scene.index = 3
+	-- return scene
+-- end
+
 
 function LoginScene:ctor()
-	
+	self.super.ctor(self)
+	self:addChild(self:createLayerSprite())
+	self:addChild(self:createLayerLabelAndBtn())
+	self.index = 3
 end
 
 
