@@ -13,6 +13,7 @@ TopLevelManager.alertLayer  = nil 		--弹出提示框层
 TopLevelManager.loadingLayer = nil 		--loading 层级管理
 TopLevelManager.storyLayer   = nil 		--剧情层
 TopLevelManager.guideLayer   = nil 		--新手引导层
+TopLevelManager.UILayer 	 = nil 		--ui层
 function TopLevelManager:ctor()
 	self:init()
 end
@@ -20,12 +21,14 @@ end
 function TopLevelManager:init()
 	self.rootNode = self:createRoot()
 	
+	self.UILayer   = nil
 	self.maskLayer = nil
 	self.alertLayer = nil
 	self.loadingLayer = nil
 	self.storyLayer = nil
 	self.guideLayer = nil
-	
+
+	self.rootNode:addChild(self.UILayer)	
 	self.rootNode:addChild(self.maskLayer)
 	self.rootNode:addChild(self.alertLayer)
 	self.rootNode:addChild(self.loadingLayer)

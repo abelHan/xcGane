@@ -31,10 +31,11 @@ g_class = {}
 --manager
 -- g_timeManager = requireM()
 g_dataManager = requireM(g_require_manager .. "DataManager").new()
+g_eventManager = requireM(g_require_manager .. "EventManager").new()
 -- g_resourceManager = requireM()
 -- g_audioManager = requireM()
 -- g_newGuideManager = requireM()
--- g_layerManager = requireM()
+g_layerManager = requireM(g_require_manager .. "TopLevelManager").new()
 -- g_renderManager = requireM()
 -- g_armatureManager = requireM()
 -- g_storyManager = requireM()
