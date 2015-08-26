@@ -1,25 +1,24 @@
-BugAnt          D:\gitHub\xcGane\res\assets\ui\BugAnt.png
-BugSpider          D:\gitHub\xcGane\res\assets\ui\BugSpider.png
-ExitButton          D:\gitHub\xcGane\res\assets\ui\ExitButton.png
-MainSceneBg          D:\gitHub\xcGane\res\assets\ui\MainSceneBg.jpg
-PlayButton          D:\gitHub\xcGane\res\assets\ui\PlayButton.png
-PlaySceneBg          D:\gitHub\xcGane\res\assets\ui\PlaySceneBg.jpg
-README          D:\gitHub\xcGane\res\assets\ui\README.md
-Star          D:\gitHub\xcGane\res\assets\ui\Star.png
-readRes          D:\gitHub\xcGane\res\assets\readRes.py
-resMap          D:\gitHub\xcGane\res\assets\resMap.txt
-新建文本文档          D:\gitHub\xcGane\res\assets\新建文本文档
-BugDead          D:\gitHub\xcGane\res\assets\audio\BugDead.wav
-BugEnterHole          D:\gitHub\xcGane\res\assets\audio\BugEnterHole.wav
-README          D:\gitHub\xcGane\res\assets\audio\README.md
-check_box_active          D:\gitHub\xcGane\res\assets\ui\defaul\check_box_active.png
-check_box_active_disable          D:\gitHub\xcGane\res\assets\ui\defaul\check_box_active_disable.png
-check_box_active_press          D:\gitHub\xcGane\res\assets\ui\defaul\check_box_active_press.png
-check_box_normal          D:\gitHub\xcGane\res\assets\ui\defaul\check_box_normal.png
-check_box_normal_disable          D:\gitHub\xcGane\res\assets\ui\defaul\check_box_normal_disable.png
-check_box_normal_press          D:\gitHub\xcGane\res\assets\ui\defaul\check_box_normal_press.png
-scrollview_bg          D:\gitHub\xcGane\res\assets\ui\defaul\scrollview_bg.png
-tabview_bg          D:\gitHub\xcGane\res\assets\ui\defaul\tabview_bg.png
-tabview_btn1          D:\gitHub\xcGane\res\assets\ui\defaul\tabview_btn1.png
-tabview_btn2          D:\gitHub\xcGane\res\assets\ui\defaul\tabview_btn2.png
-text_field_bg          D:\gitHub\xcGane\res\assets\ui\defaul\text_field_bg.png
+{"name": "BugAnt", "fullPath": "D:\\gitHub\\xcGane\\res\\assets\\ui\\BugAnt.png"}
+{"name": "BugSpider", "fullPath": "D:\\gitHub\\xcGane\\res\\assets\\ui\\BugSpider.png"}
+{"name": "ExitButton", "fullPath": "D:\\gitHub\\xcGane\\res\\assets\\ui\\ExitButton.png"}
+{"name": "MainSceneBg", "fullPath": "D:\\gitHub\\xcGane\\res\\assets\\ui\\MainSceneBg.jpg"}
+{"name": "PlayButton", "fullPath": "D:\\gitHub\\xcGane\\res\\assets\\ui\\PlayButton.png"}
+{"name": "PlaySceneBg", "fullPath": "D:\\gitHub\\xcGane\\res\\assets\\ui\\PlaySceneBg.jpg"}
+{"name": "README", "fullPath": "D:\\gitHub\\xcGane\\res\\assets\\ui\\README.md"}
+{"name": "Star", "fullPath": "D:\\gitHub\\xcGane\\res\\assets\\ui\\Star.png"}
+{"name": "check_box_active", "fullPath": "D:\\gitHub\\xcGane\\res\\assets\\ui\\defaul\\check_box_active.png"}
+{"name": "check_box_active_disable", "fullPath": "D:\\gitHub\\xcGane\\res\\assets\\ui\\defaul\\check_box_active_disable.png"}
+{"name": "check_box_active_press", "fullPath": "D:\\gitHub\\xcGane\\res\\assets\\ui\\defaul\\check_box_active_press.png"}
+{"name": "check_box_normal", "fullPath": "D:\\gitHub\\xcGane\\res\\assets\\ui\\defaul\\check_box_normal.png"}
+{"name": "check_box_normal_disable", "fullPath": "D:\\gitHub\\xcGane\\res\\assets\\ui\\defaul\\check_box_normal_disable.png"}
+{"name": "check_box_normal_press", "fullPath": "D:\\gitHub\\xcGane\\res\\assets\\ui\\defaul\\check_box_normal_press.png"}
+{"name": "scrollview_bg", "fullPath": "D:\\gitHub\\xcGane\\res\\assets\\ui\\defaul\\scrollview_bg.png"}
+{"name": "tabview_bg", "fullPath": "D:\\gitHub\\xcGane\\res\\assets\\ui\\defaul\\tabview_bg.png"}
+{"name": "tabview_btn1", "fullPath": "D:\\gitHub\\xcGane\\res\\assets\\ui\\defaul\\tabview_btn1.png"}
+{"name": "tabview_btn2", "fullPath": "D:\\gitHub\\xcGane\\res\\assets\\ui\\defaul\\tabview_btn2.png"}
+{"name": "text_field_bg", "fullPath": "D:\\gitHub\\xcGane\\res\\assets\\ui\\defaul\\text_field_bg.png"}
+{"name": "BugDead", "fullPath": "D:\\gitHub\\xcGane\\res\\assets\\audio\\BugDead.wav"}
+{"name": "BugEnterHole", "fullPath": "D:\\gitHub\\xcGane\\res\\assets\\audio\\BugEnterHole.wav"}
+{"name": "README", "fullPath": "D:\\gitHub\\xcGane\\res\\assets\\audio\\README.md"}
+{"name": "readRes", "fullPath": "D:\\gitHub\\xcGane\\res\\assets\\readRes.py"}
+{"name": "resMap", "fullPath": "D:\\gitHub\\xcGane\\res\\assets\\resMap.txt"}

@@ -2,6 +2,12 @@
 import re
 import os
 import time
+import json
+
+lua_file_name = "resMap.lua"
+lua_file_head = "local ResManager =nil \n ResManager = {"
+lua_file_end = "}\n return ResManager"
+lua_root = "g_load_assets .. "
 
 #获取当前工作空间的目录
 def getcwd():
@@ -49,7 +55,15 @@ def listfile(dir_path):
             resultlist.append(value)
 
     return resultlist   
+#将绝对路径转换为lua可以用的路径
+def toluapath(path):
+    cwd = os.getcwd()
 
+    tempStr = path[(len(cwd + "\\")):]
+
+    
+    return lua_root + "\"" + tempStr.replace("\\","/")+ "\""
+    
 if __name__ == '__main__':
     print('当前的工作空间是：{0}'.format(getcwd()))
     print('#' * 40)
@@ -89,15 +103,19 @@ if __name__ == '__main__':
 
     #记录结果
     curPath = getcwd()
-    fp = open(curPath + "\\resMap.txt",'w+')
+    fp = open(curPath + "\\" + lua_file_name,'w+')
+    fp.write(lua_file_head)
     
     for key,value in filePath.items():
         if value:
             for v in value:
                 fullPath =  key + "\\" + v
                 name = os.path.splitext(v)
-                fp.write(name[0] + "          " + fullPath + "\n")
+                #content = json.dumps({"name":name[0],"fullPath":fullPath})
+                #fp.write(content + "\n")
+                fp.write("\t" + name[0] + " = " +  toluapath(fullPath) + ",\n")
 
+    fp.write(lua_file_end)
     fp.flush()
     fp.close()
 
