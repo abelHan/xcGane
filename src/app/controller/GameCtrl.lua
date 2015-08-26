@@ -4,6 +4,7 @@
 	RPGGame  --游戏UI显示
 --]]
 
+local FunctionCtrl = requireM(g_require_ctrl .. "FunctionCtrl")
 
 GameCtrl = class("GameCtrl")
 
@@ -12,7 +13,7 @@ GameCtrl.target = nil
 GameCtrl.callbackFun = nil
 	
 function GameCtrl:ctor()
-
+	self.functionCtrl = FunctionCtrl.new()
 end
 
 function GameCtrl:setCallbackFun(target, callbackFun)

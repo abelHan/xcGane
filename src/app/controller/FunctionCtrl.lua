@@ -54,5 +54,5 @@ function FunctionCtrl:getOpenLevel(functionID)
 end
 
 
-
+return FunctionCtrl
 

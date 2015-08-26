@@ -3,8 +3,11 @@
 
 --]]
 
+local UILayer = requireM(g_require_manager .. "layer.UILayer")
+
 
 local TopLevelManager = class("TopLevelManager")
+
 
 TopLevelManager.rootNode = nil			--层级管理
 
@@ -21,28 +24,28 @@ end
 function TopLevelManager:init()
 	self.rootNode = self:createRoot()
 	
-	self.UILayer   = nil
-	self.maskLayer = nil
-	self.alertLayer = nil
-	self.loadingLayer = nil
-	self.storyLayer = nil
-	self.guideLayer = nil
+	self.UILayer   = UILayer.new()
+	-- self.maskLayer = nil
+	-- self.alertLayer = nil
+	-- self.loadingLayer = nil
+	-- self.storyLayer = nil
+	-- self.guideLayer = nil
 
 	self.rootNode:addChild(self.UILayer)	
-	self.rootNode:addChild(self.maskLayer)
-	self.rootNode:addChild(self.alertLayer)
-	self.rootNode:addChild(self.loadingLayer)
-	self.rootNode:addChild(self.storyLayer)
-	self.rootNode:addChild(self.guideLayer)
+	-- self.rootNode:addChild(self.maskLayer)
+	-- self.rootNode:addChild(self.alertLayer)
+	-- self.rootNode:addChild(self.loadingLayer)
+	-- self.rootNode:addChild(self.storyLayer)
+	-- self.rootNode:addChild(self.guideLayer)
 	
 	
 end
 
 function TopLevelManager:createRoot()
-	local tempScene = cc.Scene:create()
+	local tempScene = cc.Layer:create()
 	cc.Director:getInstance():setNotificationNode(tempScene)
-	tempScene:onEnter()
-	tempScene:onEnterTransitionDidFinish()
+	-- tempScene:onEnter()
+	-- tempScene:onEnterTransitionDidFinish()
 
 	return tempScene
 end
