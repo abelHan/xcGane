@@ -32,6 +32,7 @@ g_class.MMBaseUI = requireM(g_require_com .. "MMBaseUI")
 g_class.MMScene = requireM(g_require_com .. "MMScene")
 g_class.MMLayer = requireM(g_require_com .. "MMLayer")
 
+
 --manager
 -- g_timeManager = requireM()
 g_dataManager = requireM(g_require_manager .. "DataManager").new()
@@ -48,6 +49,7 @@ g_layerManager = requireM(g_require_manager .. "TopLevelManager").new()
 -- g_lan = requireM()  
 g_GUIcreator =  requireM(g_require_util .. "GUICreator").new()
 -- g_GUITool = requireM()
+g_resManager = requireM(g_load_assets .. "ResManager")
 
 
 

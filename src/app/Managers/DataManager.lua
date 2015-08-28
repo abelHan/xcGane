@@ -6,6 +6,11 @@
 
 local DataManager = class("DataManager")
 
+DataManager.dbList = {
+	ui_config = nil,
+	other = nil,
+
+}
 
 function DataManager:ctor()
 	self:init()
@@ -18,7 +23,29 @@ end
 
 -- 读取所有配置档的名称
 function DataManager:init()
+	-- self:openDB()
+end
 
+function DataManager:openDB()
+	local dbPath = nil
+	
+	for key,value in pairs(self.dbList) do
+		local dbPath = g_load_data .. key .. "db"
+		local db = sql.open(dbPath)
+		
+		print("数据库>>" .. key .. "  open")
+		self.dbList[key] = db
+	
+	end
+end
+
+--关闭数据库
+function DataManager:closeDB()
+	for key,value in pairs(self.dbList) do
+		if value ~= nil then
+			value:close()
+		end
+	end
 end
 -------------------------------读取配置----------------------------------
 -- 读取游戏相关的配置 如是否开音效等

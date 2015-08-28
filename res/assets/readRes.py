@@ -4,7 +4,7 @@ import os
 import time
 import json
 
-lua_file_name = "resMap.lua"
+lua_file_name = "ResManager.lua"
 lua_file_head = "local ResManager =nil \n ResManager = {"
 lua_file_end = "}\n return ResManager"
 lua_root = "g_load_assets .. "

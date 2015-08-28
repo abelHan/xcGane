@@ -7,6 +7,13 @@ FunctionCtrl.lua
 
 FunctionCtrl = class("FunctionCtrl")
 
+FunctionCtrl.functionAry ={
+	1001001 = "",
+	1001002 = "",	
+	1001003 = "",
+	1001004 = "",	
+}
+
 function FunctionCtrl:ctor()
 	self:initData()
 	self:initListener()
@@ -31,7 +38,17 @@ end
 
 --直接打开某个界面
 function FunctionCtrl:openUIByIDNotCheck(functionID, data)
+	
+	local name = self.functionAry[functionID] 
+	local uiData = 	g_dataManager.getUIConfigByID(functionID)
+		
+	if functionID == 0 then
+	
+	end
 
+	if name then
+		g_gameCtrl:openUI(name, {config = uiData, detail = data})
+	end
 end
 
 --外部调用，打开某个界面

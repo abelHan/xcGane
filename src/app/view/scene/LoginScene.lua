@@ -25,8 +25,9 @@ local LoginScene = class("LoginScene",g_class.MMScene)
 
 function LoginScene:ctor()
 	self.super.ctor(self)
-	self:addChild(self:createLayerSprite())
-	self:addChild(self:createLayerLabelAndBtn())
+	-- self:addChild(self:createLayerSprite())
+	-- self:addChild(self:createLayerLabelAndBtn())
+	self:addChild(self:createLayer())
 	self.index = 3
 end
 
@@ -44,6 +45,29 @@ function LoginScene:callFun1(hasSelected)
 	end
 end
 
+
+function LoginScene:createLayer()
+
+	local winSize = cc.Director:getInstance():getWinSize()
+	
+	local layerSprite = cc.Layer:create()
+	local config = {parent = layerSprite,pos =cc.p(winSize.width/2,winSize.height/2),
+		pngUrl = g_resManager.PlaySceneBg}
+	local sprite = g_GUIcreator:createSprite(config)
+	
+	local configBtnLogin = {parent = layerSprite,pos = cc.p(winSize.width/2,winSize.height/2 - 100),
+		normalUrl = g_resManager.PlayButton, txt = "用户登录", txtColor = cc.c3b(255,0,0),
+		clickEvent = self.showLoginPanel, target = self}
+	local tempBtn = g_GUIcreator:createButton(configBtnLogin)
+	
+	local configBtnBegin = {parent = layerSprite,pos = cc.p(winSize.width/2,winSize.height/2 - 200),
+		normalUrl = g_resManager.PlayButton, txt = "游客开始", txtColor = cc.c3b(255,0,0),
+		clickEvent = self.playAsVisitor, target = self}
+	local tempBtn = g_GUIcreator:createButton(configBtnBegin)
+	
+
+	return layerSprite
+end
 
 function LoginScene:createLayerSprite()
 	local layerSprite = cc.Layer:create()
@@ -129,5 +153,16 @@ function LoginScene:createLayerLabelAndBtn()
 	
 	return layer
 end
+
+function LoginScene:showLoginPanel()
+	print("showLoginPanel>>>")
+
+end
+
+function LoginScene:playAsVisitor()
+	print("playAsVisitor>>>")
+
+end
+
 
 return LoginScene

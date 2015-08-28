@@ -36,5 +36,10 @@ function GameCtrl:clearAllUI()
 	self.callbackFun(self.target,"clearAllUI")
 end
 
+function GameCtrl:openUIByID(functionID, data)
+	if self.functionCtrl then
+		self.functionCtrl:openUIByID(functionID, data)
+	end
+end
 
 return GameCtrl
