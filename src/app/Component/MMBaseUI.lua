@@ -17,9 +17,9 @@ MMBaseUI.showScale  = nil  --出场时是否有动画
 -- resAry          --资源的种类
 -- isShowNotify	   --是否显示通知按钮，入口
 
-function MMBaseUI:ctor(titleData,data,showScale)
-	self.data = data
-	self.titleData = titleData
+function MMBaseUI:ctor(data,showScale)
+	self.data = data.detail
+	self.titleData = data.config
 	self.showScale = showScale or true
 	
 end

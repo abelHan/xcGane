@@ -5,14 +5,13 @@ FunctionCtrl.lua
 
 --]]
 
-FunctionCtrl = class("FunctionCtrl")
+local FunctionCtrl = class("FunctionCtrl")
 
 FunctionCtrl.functionAry ={
-	1001001 = "",
-	1001002 = "",	
-	1001003 = "",
-	1001004 = "",	
-}
+	{1001001, "1001001"},
+	{1001002, "1001002"},	
+	{1001003, "1001003"},
+	{1001004, "1001004"}}
 
 function FunctionCtrl:ctor()
 	self:initData()
@@ -36,10 +35,21 @@ function FunctionCtrl:openFight(data)
 
 end
 
+function FunctionCtrl:getUINameByID(functionID)
+	for v,k in pairs(self.functionAry) do
+		if v[1] == functionID then
+			return v[2]
+		end
+	
+	end
+	print("未找到指定的UI....."  .. functionID)
+	return nil
+
+end
 --直接打开某个界面
 function FunctionCtrl:openUIByIDNotCheck(functionID, data)
 	
-	local name = self.functionAry[functionID] 
+	local name = self.getUINameByID(functionID)
 	local uiData = 	g_dataManager.getUIConfigByID(functionID)
 		
 	if functionID == 0 then

@@ -1,5 +1,5 @@
 --[[
-	Êı¾İ¹ÜÀíÀà  ´ÓÍâ²¿¶ÁÈ¡ËùÓĞµÄÊı¾İ
+	æ•°æ®ç®¡ç†ç±»  ä»å¤–éƒ¨è¯»å–æ‰€æœ‰çš„æ•°æ®
 	DataManager
 --]]
 
@@ -21,9 +21,21 @@ function DataManager:ctor()
 	self:readAllTask()
 end
 
--- ¶ÁÈ¡ËùÓĞÅäÖÃµµµÄÃû³Æ
+-- è¯»å–æ‰€æœ‰é…ç½®æ¡£çš„åç§°
 function DataManager:init()
 	-- self:openDB()
+	self:openLua()
+end
+
+function DataManager:openLua()
+	local luaPath = nil
+	for key,value in pairs(self.dbList) do
+		luaPath = g_load_data .. "key" .. ".lua"
+		
+		print("æ•°æ®åº“>>" .. key .. "  open")
+		
+		self.dbList[key] = requirM(luaPath)
+	end
 end
 
 function DataManager:openDB()
@@ -33,13 +45,13 @@ function DataManager:openDB()
 		local dbPath = g_load_data .. key .. "db"
 		local db = sql.open(dbPath)
 		
-		print("Êı¾İ¿â>>" .. key .. "  open")
+		print("æ•°æ®åº“>>" .. key .. "  open")
 		self.dbList[key] = db
 	
 	end
 end
 
---¹Ø±ÕÊı¾İ¿â
+--å…³é—­æ•°æ®åº“
 function DataManager:closeDB()
 	for key,value in pairs(self.dbList) do
 		if value ~= nil then
@@ -47,36 +59,36 @@ function DataManager:closeDB()
 		end
 	end
 end
--------------------------------¶ÁÈ¡ÅäÖÃ----------------------------------
--- ¶ÁÈ¡ÓÎÏ·Ïà¹ØµÄÅäÖÃ ÈçÊÇ·ñ¿ªÒôĞ§µÈ
+-------------------------------è¯»å–é…ç½®----------------------------------
+-- è¯»å–æ¸¸æˆç›¸å…³çš„é…ç½® å¦‚æ˜¯å¦å¼€éŸ³æ•ˆç­‰
 function DataManager:readGameConfig()
 
 end
 
--- ¶ÁÈ¡Ä³¸öµÄÍæ¼ÒĞÅÏ¢
+-- è¯»å–æŸä¸ªçš„ç©å®¶ä¿¡æ¯
 function DataManager:readPlayerData()
 
 end
 
--- ¶ÁÈ¡×ÊÔ´µÄID±í
+-- è¯»å–èµ„æºçš„IDè¡¨
 -- key  url
 function DataManager:readRes()
 
 end
 
--- ¶ÁÈ¡ËùÓĞµÄ¹Ø¿¨Êı¾İ
+-- è¯»å–æ‰€æœ‰çš„å…³å¡æ•°æ®
 function DataManager:readAllLevelData()
 
 end
 
--- ¶ÁÈ¡ËùÓĞµÄ³É¾Í±í
+-- è¯»å–æ‰€æœ‰çš„æˆå°±è¡¨
 function DataManager:readAllTask()
 
 end
 
 -------------------------------------------------------------------------------
 
-------------------------------»ñÈ¡Êı¾İ-----------------------------------------
+------------------------------è·å–æ•°æ®-----------------------------------------
 
 function DataManager:getGameConfig() 
 
@@ -101,7 +113,7 @@ function DataManager:getResByID(id)
 	return url
 end
 
--- »ñÈ¡Êı¾İÍ¨¹ıÃû³Æ
+-- è·å–æ•°æ®é€šè¿‡åç§°
 -- game player level task
 function DataManager:getDataByModel(model)
 	if model == "game" then  return self:getGameConfig()  end
@@ -112,7 +124,7 @@ function DataManager:getDataByModel(model)
 end
 -------------------------------------------------------------------------------
 
-------------------------------ÓÎÏ·ÍË³öÊ±±£´æÊı¾İ-----------------------------------------
+------------------------------æ¸¸æˆé€€å‡ºæ—¶ä¿å­˜æ•°æ®-----------------------------------------
 
 function DataManager:saveUserData()
 	

@@ -27,10 +27,11 @@ function UILayer:addUI(ui)
 end
 
 -- titleData 含义
--- isShowBackBtn   --是否显示返回按钮
--- title           --标题
--- resAry          --资源的种类
--- isShowNotify	   --是否显示通知按钮，入口
+-- entry					--functionID
+-- is_show_backbtn   		--是否显示返回按钮
+-- title           			--标题
+-- show_res          		--资源的种类
+-- show_notify	   			--是否显示通知按钮，入口
 function UILayer:showRes(resData)
 	print("see the title >>>")
 	if self.gameResPanel == nil then
