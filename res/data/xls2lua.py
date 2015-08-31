@@ -3,13 +3,10 @@
 #Python 3.4
 #xlrd-0.9.4
 '''
-例子
+例子：
 http://www.cnblogs.com/lhj588/archive/2012/01/06/2314181.html
 
 '''
-#指定第三方库的路径
-import sys
-sys.path.append('C:\\Python34\\Lib\\site-packages')
 
 import xlrd
 import os
@@ -20,7 +17,7 @@ lua_item_int = "\t\t{0} = {1},\n"
 lua_item_str = "\t\t{0} = \"{1}\",\n"
 lua_file_end = "\n return {0}"
 
-#获取当前工作空间的路径
+#获取当前工作空间的目录
 def getcwd():
     return os.getcwd()     
 
@@ -60,7 +57,7 @@ def open_excel(fileName = "xcGameData.xls"):
                 return data
         #except Exception,e:
          #       print str(e)
-#将一个字典转换为一张lua
+#将一个字典转换为一张lua表
 def dic2lua(name,value):
         cur_path = getcwd()
         fp = open(cur_path + "\\" + name + ".lua", "w+")
@@ -80,7 +77,7 @@ def dic2lua(name,value):
         fp.flush()
         fp.close()
 
-#主函数
+#主代码
 def main():
         print("hello")
         tables = open_excel()
